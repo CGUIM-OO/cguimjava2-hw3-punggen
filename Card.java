@@ -8,7 +8,7 @@ public class Card {
 	 * @param r rank
 	 */
 	public enum Suit{Club, Diamond, Heart, Spade};
-	private Suit suit;
+	private Suit suit; //using enum 
 	public Card(Suit s, int value){
 		suit=s;
 		rank= value;

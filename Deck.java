@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Deck {
 	private ArrayList<Card> cards;
-	ArrayList<Card> usedCard;//the cards that been used 
+	public ArrayList<Card> usedCard;//the cards that been used 
 	public int nUsed;//count cards that been used
 	//TODO: Please implement the constructor (30 points)
 	public Deck(int nDeck){
@@ -47,30 +47,30 @@ public class Deck {
 		Random rnd = new Random();  
 		int j;
 		Card a,b,temp=null;
-		for(int i =0;i<cards.size();i++)
+		for(int i =0;i<cards.size();i++) //shuffle every single cards
 		{
 			j = rnd.nextInt(cards.size());
-			a=cards.get(i);
-			b=cards.get(j);
-			temp=a;
+			a=cards.get(i); //get two cards
+			b=cards.get(j); 
+			temp=a;  //swap two card
 			a=b;
 			b=temp;
 		}
-		 usedCard.clear();
-		 nUsed=0;
+		 usedCard.clear(); //clear the usedCard arraylist
+		 nUsed=0; //reset the count of used card
 	}
 	public Card getOneCard() {
 		
 		Random rnd =new Random();
 		usedCard=new ArrayList<Card>();
 		
-		int k =rnd.nextInt(cards.size());
-		Card draw = cards.get(k);
+		int k =rnd.nextInt(cards.size()); //get a random card number 
+		Card draw = cards.get(k);  //get 'that' random card
 		
 		
-		nUsed++; 
-		usedCard.add(draw); 
-		if(nUsed==cards.size()) 
+		nUsed++;   //add 1 for count of used card
+		usedCard.add(draw);  //add the drawed card in used arraylist
+		if(nUsed==cards.size()) // if all card had used , shuffle 
 			shuffle();
 		return draw;
 		
